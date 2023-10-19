@@ -1,32 +1,31 @@
 package com.limbo.array;
 
+import java.util.Arrays;
+
 /**
  * D	[2731]移动机器人	39.4%	Medium	0.0%
  */
 public class SumDistanceSolution {
 
+    static final int MOD = 1000000007;
 
     public int sumDistance(int[] nums, String s, int d) {
-        char[] charArray = s.toCharArray();
-        int[] directionArray = new int[nums.length];
-
-        for (int i=0; i < d; i++){
-
+        int n = nums.length;
+        long[] pos = new long[n];
+        for (int i = 0; i < n; i++) {
+            if (s.charAt(i) == 'L') {
+                pos[i] = (long) nums[i] - d;
+            } else {
+                pos[i] = (long) nums[i] + d;
+            }
         }
-        return 0;
-    }
-
-    public int getDirection(char[] charArray, int[] directionArray, int index){
-        if(directionArray[index] != 0){
-            return directionArray[index];
+        Arrays.sort(pos);
+        long res = 0;
+        for (int i = 1; i < n; i++) {
+            res += (pos[i] - pos[i - 1]) * i % MOD * (n - i) % MOD;
+            res %= MOD;
         }
-
-        if(charArray[index] == 'L'){
-            directionArray[index] = -1;
-        }else {
-            directionArray[index] = 1;
-        }
-        return directionArray[index];
+        return (int) res;
     }
 
 }

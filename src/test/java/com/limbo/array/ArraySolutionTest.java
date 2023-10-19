@@ -2,6 +2,8 @@ package com.limbo.array;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.TreeMap;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ArraySolutionTest {
@@ -11,7 +13,7 @@ public class ArraySolutionTest {
     public void sumDistanceSolutionTest(){
         SumDistanceSolution sumDistanceSolution = new SumDistanceSolution();
 
-        assertEquals(8, sumDistanceSolution.sumDistance(new int[]{1,0}, "RL", 2));
+        assertEquals(8, sumDistanceSolution.sumDistance(new int[]{-2,0,2}, "RLL", 3));
     }
 
 }
